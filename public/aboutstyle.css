@@ -1,0 +1,85 @@
+.active { 
+    color: #ec4899;
+    font-weight: 700; 
+}
+
+.page_hero {
+    padding: 90px 20px 60px; 
+    text-align: center;
+    background: linear-gradient(135deg, #fdf2f8, #eef2ff);
+}
+
+.page_hero h1 {
+    font-size: 3rem; 
+    margin-bottom: 16px; 
+    color: #111827;
+}
+
+.page_hero p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    color: #4b5563;
+    line-height: 1.7;
+}
+
+.about_section {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.about_card {
+    background: white;
+    padding: 35px;
+    margin-bottom: 30px;
+    border-radius: 18px; 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.about_card h2 {
+    margin-bottom: 16px; 
+    color: #111827;
+}
+
+.about_card p {
+    color: #4b5563; 
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+
+.steps_process {
+    display: grid;
+    grid-template-columns: reapeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px; 
+    margin-top: 25px; 
+}
+
+.steps_card{ 
+    padding: 25px; 
+    border: 1px solid #e5e7eb;
+    border-radius: 16px; 
+    background-color: #f9fafb;
+}
+
+.steps_card span{
+    display: block;
+    color: #ec4899;
+    font-size: 1.8 rem; 
+    font-weight: 700; 
+    margin-bottom: 10px;
+}
+
+.steps_card h3 {
+    margin-bottom: 10px; 
+    color: #111827;
+}
+
+.steps_card p {
+    margin-bottom: 0;
+}
+
+.highlight_card { 
+    background: #fdf2f8;
+    border: 1px solid #fbcfe8;
+}
