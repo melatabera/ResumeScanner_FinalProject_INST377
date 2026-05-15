@@ -1,0 +1,24 @@
+{
+  "name": "resume-scanner-final-project",
+  "version": "1.0.0",
+  "description": "INST 377 Final Project",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/melatabera/ResumeScanner_FinalProject_INST377.git"
+  },
+  "license": "ISC",
+  "author": "Melat Abera + Daanial Haris",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -e '*'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.105.4",
+    "body-parser": "^2.2.2",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
