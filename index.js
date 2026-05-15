@@ -19,6 +19,16 @@ app.get('/', (req, res) => {
      res.sendFile('public/index.html', {root: __dirname})
 })
 
+app.get('/about', (req, res) => {
+     res.sendFile('public/about.html', {root: __dirname})
+}) 
+
+app.get('/resume', (req, res) => {
+     res.sendFile('public/resume.html', {root: __dirname})
+}) 
+
+
+
 app.listen(port, () => {
      console.log(`App is available on port: ${port}`);
 })
