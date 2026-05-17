@@ -1,10 +1,16 @@
-async function fetchJobData() {
+document.getElementById('search_btn').addEventListener('click', async() => {
+    const jobs = await fetchJobData()
+    getJobs(jobs)
+})
+
+
+let currentOffset = 0
+
+async function fetchJobData(offset=0) {
     const query = document.getElementById('query').value;
     const response = await fetch(`https://himalayas.app/jobs/api/search?q=${query}&limit=20`)
     const data = await response.json()
-
-    console.log(data); 
-    console.log(data.jobs)
+    console.log(data)  
     return data.jobs
 
 }
@@ -36,10 +42,11 @@ function getJobs(jobs){
         type.classList.add('type')
         type.textContent = job.employmentType
 
+
         info.appendChild(company);
         info.appendChild(pipe)
         info.appendChild(type);
-        
+
 
         const description = document.createElement('p')
         description.classList.add('excerpt')
@@ -56,11 +63,19 @@ function getJobs(jobs){
          })
         }
 
+        const viewBtn = document.createElement('button')
+        viewBtn.classList.add('job_viewer')
+        viewBtn.textContent = 'View Job'
+        viewBtn.addEventListener('click', function(){
+        window.open(job.guid, '_blank')
+        })
+
 
         card.appendChild(title)
         card.appendChild(info)
         card.appendChild(description)
         card.appendChild(labels)
+        card.appendChild(viewBtn)
 
         container.appendChild(card)
 
@@ -70,9 +85,8 @@ function getJobs(jobs){
 }
 
 
-
-
 window.onload = async function(){
-    const jobs = await fetchJobData()
-    getJobs(jobs)
+    const response = await fetch(`https://himalayas.app/jobs/api/search?q=${query}&limit=20`)
+    const data = await response.json();
+    getJobs(data.jobs)
 }

@@ -92,12 +92,15 @@ button {
 
 
 #job_search{
-    width: 75%;
-    outline: auto;
+    width: 100%;
     padding: 20px;
     margin-top: 20px;
     border-radius: 10px;
     height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 
@@ -114,7 +117,7 @@ button {
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
-    width: 50%;
+    width: 280px;
 }
 
 .job_name{
@@ -179,4 +182,12 @@ button {
     font-size: 12px;
     font-family: 'Lucida Sans';
 
+}
+
+.job_viewer{
+    color: white;
+    font: arial;
+    background: #EC4899;
+    margin: 20px 0px 0px;
+    padding: 12px 28px;
 }
