@@ -28,7 +28,7 @@ async function uploadResume(e){
         const response = await fetch('https://api.apyhub.com/sharpapi/api/v1/hr/resume_job_match_score', {
             method: 'POST',
             headers:{
-                'apy-token': 'APY02Iyl53LyWewCu43MIeWdca1j3LS4ZmKBYwUBQ2uAQv0psYuXbGf2AoWnVS8o19pC4YT7u',
+                'apy-token': 'APY0nlMnV0utGJoC3SThKCcO8DsOGL4R3yjozpMkvjt66XTKF16kVYLeYGVQ8W10ykBUT',
                 'Accept': 'application/json'
             },
             body: formData
@@ -61,7 +61,7 @@ function showResults(jobId){
         const checkResponse = await fetch(link, {
             method: 'GET', 
             headers: {
-                'apy-token': 'APY02Iyl53LyWewCu43MIeWdca1j3LS4ZmKBYwUBQ2uAQv0psYuXbGf2AoWnVS8o19pC4YT7u',
+                'apy-token': 'APY0nlMnV0utGJoC3SThKCcO8DsOGL4R3yjozpMkvjt66XTKF16kVYLeYGVQ8W10ykBUT',
                 'Content-Type': 'application/json'
             }
         });
@@ -75,18 +75,72 @@ function showResults(jobId){
         if(currentStatus === "success"){
             clearInterval(timer);
 
-            // get results
             const result = data.data.attributes.result;
-            
-            // convert the json data and show in results div
-            const resultDiv = document.getElementById('result');
-            const resultsJSON = JSON.stringify(result,null,2)
-            resultDiv.innerHTML = `<h3>Results: </h3><pre>${resultsJSON}</pre>`
-            
-        }
+            const scores = result.match_scores;
+            const explanations = result.explanations;
 
-        else{
-            console.log("Not ready yet!");
+            //labels for each score
+            const scoreLabels = {
+                overall_match: "Overall Match",
+                skills_match: "Skills",
+                experience_match: "Experience",
+                education_match: "Education",
+                certifications_match: "Certifications",
+                job_title_relevance: "Job Title Relevance",
+                technical_stack_match: "Technical Stack", 
+                methodologies_match: "Methodologies",
+                soft_skills_match: "Soft Skills",
+                project_experience_match: "Project Experience",
+                cultural_fit_potential: "Cultural Fit",
+                stability_score: "Stability Score",
+                remote_work_flexibility: "Remote Work Flexibility",
+                location_preference_match: "Location Match",
+                management_experience_match: "Management Experience"
+            }
+
+            //building score bars
+            let scoresHTML = '';
+            for(const key in scoreLabels){
+                const label = scoreLabels[key];
+                const value = scores[key] || 0;
+                scoresHTML += `
+                <div class="score_row">
+                    <div class="score_label">${label}</div>
+                    <div class="score_bar_bg">
+                        <div class="score_bar_fill" style ="width: ${value}%"></div>
+                    </div>
+                    <div class="score_number">${value}%</div>
+                </div>
+                `
+            }
+
+            //building explanations 
+            let explanationsHTML = '';
+            for(const key in explanations){
+                const label = scoreLabels[key] || key;
+                explanationsHTML += `
+                <div class="explanation_item">
+                    <h4>${label}</h4>
+                    <p>${explanations[key]}</p>
+                </div>
+                `
+            }
+
+            document.getElementById('result').innerHTML = `
+                <h3>Your Results</h3>
+                <div class="overall_score">${scores.overall_match}% Match</div>
+                <div class="scores_section">
+                    <h4>Score Breakdown</h4>
+                    ${scoresHTML}
+                </div>
+                <div class="explanations_section">
+                    <h4>Feedback</h4>
+                    ${explanationsHTML}
+                </div>
+            `
+            
+        } else {
+            console.log("not ready yet");
         }
     
     }, 10000)
