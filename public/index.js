@@ -1,3 +1,4 @@
+
 document.getElementById('search_btn').addEventListener('click', async() => {
     const jobs = await fetchJobData()
     getJobs(jobs)
