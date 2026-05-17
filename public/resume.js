@@ -12,6 +12,11 @@ async function uploadResume(e){
     const file = document.getElementById('resume_file').files[0];
     const content = document.getElementById('job_description').value;
 
+
+    document.getElementById('result').innerHTML = '<p>Uploading and analyzing, please wait....'
+    // document.getElementById('submit_button').disabled = true;
+
+
     // API requires a formData object, initialize one with the necessary inputs: 'file', 'content', and 'language'
     const formData = new FormData();
     formData.append('file', file);
@@ -20,51 +25,48 @@ async function uploadResume(e){
 
     // call API with the data
     try{
-        const response = await fetch('http://localhost:3002/sharpapi/api/v1/hr/resume_job_match_score', {
+        const response = await fetch('https://api.apyhub.com/sharpapi/api/v1/hr/resume_job_match_score', {
             method: 'POST',
             headers:{
-                'apy-token': 'APY0wwwul4yIVYh85ceUV7gMe8eKR0hOFTg0XZuZ95Fts3OKhSynWwCKyorsrlqkEPF3YfQGk',
+                'apy-token': 'APY02Iyl53LyWewCu43MIeWdca1j3LS4ZmKBYwUBQ2uAQv0psYuXbGf2AoWnVS8o19pC4YT7u',
                 'Accept': 'application/json'
             },
             body: formData
         });
 
-        const text = await response.text();
-
-console.log(text);
         const data = await response.json();
 
-        console.log(data)
+        console.log(data.status_url)
+
 
         // call function to periodically check if upload is done, show results if ready
+
         const result = await showResults(data.job_id)
     }
     catch (e){
-        console.log("error!", e);
+        console.log("error!");
     }
-
-
 
 }
 
 function showResults(jobId){
 
     console.log("starting interval");
+
+    const link = `https://api.apyhub.com/sharpapi/api/v1/hr/resume_job_match_score/job/status/${jobId}`
     // continuously check status link given by API to see if data is ready (every 2 seconds)
     const timer = setInterval(async() => {
-        const statusUrl = `http://localhost:3002/sharpapi/api/v1/hr/resume_job_match_score/job/status/${jobId}`
         
         // check the status for a response
-        const checkResponse = await fetch(statusUrl, {
-            method: 'GET',
+        const checkResponse = await fetch(link, {
+            method: 'GET', 
             headers: {
-                'apy-token': 'APY0SFV0ZLRE93mpy0V8ZbAG0JCEgHwcQHAAx3P1em6h8iLqzpuH9aLrJ7sNRYgdNAifEKNH6s2Lyu',
+                'apy-token': 'APY02Iyl53LyWewCu43MIeWdca1j3LS4ZmKBYwUBQ2uAQv0psYuXbGf2AoWnVS8o19pC4YT7u',
                 'Content-Type': 'application/json'
             }
         });
 
         const data = await checkResponse.json()
-        
 
         // get status attribute from data
         const currentStatus = data.data.attributes.status;
@@ -72,8 +74,6 @@ function showResults(jobId){
         // if the data is already ready, stop checking and set the div with info
         if(currentStatus === "success"){
             clearInterval(timer);
-
-
 
             // get results
             const result = data.data.attributes.result;
@@ -89,6 +89,6 @@ function showResults(jobId){
             console.log("Not ready yet!");
         }
     
-    }, 5000)
+    }, 10000)
 }
 

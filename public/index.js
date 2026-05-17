@@ -1,7 +1,6 @@
 async function fetchJobData() {
     const query = document.getElementById('query').value;
-    const response = await fetch(`https://himalayas.app/jobs/api/search?q=software+intern&sort=recent`)
-
+    const response = await fetch(`https://himalayas.app/jobs/api/search?q=${query}&limit=20`)
     const data = await response.json()
 
     console.log(data); 
@@ -40,20 +39,23 @@ function getJobs(jobs){
         info.appendChild(company);
         info.appendChild(pipe)
         info.appendChild(type);
+        
 
         const description = document.createElement('p')
         description.classList.add('excerpt')
         description.textContent = job.excerpt
 
         const labels = document.createElement('div');
-        labels.classList.add('info');
+        labels.classList.add('labels');
         if(job.categories && Array.isArray(job.categories)){
             job.categories.slice(0,3).forEach(category => {
             const label = document.createElement('p')
+            label.classList.add('label_tag')
             label.textContent = category.replaceAll('-',' ')
             labels.appendChild(label)
          })
         }
+
 
         card.appendChild(title)
         card.appendChild(info)
