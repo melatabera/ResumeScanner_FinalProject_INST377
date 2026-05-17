@@ -1,5 +1,8 @@
 body{
     font-family: sans-serif;
+    background-color: #fdf2f8;
+    margin: 0;
+    padding: 0;
 
 }
 
@@ -21,15 +24,28 @@ nav{
 
 nav h2 {
     margin-right: auto;
+    color: #ec4899;
 }
 
-#title_screen{
-    background: linear-gradient(135deg, #fdf2f8, #eef2ff);
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+nav h4 a{
+    text-decoration: none;
+    color: #4b5563;
+}
 
+nav h4 a:hover {
+    color: #ec4899;
+}
+
+.step {
+    display: flex;
+    border: 1px solid #f9a8d4;
+    background-color: white;
+    width: 20%;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    align-items: center; 
+    gap: 14px;
 }
 
 
@@ -41,15 +57,6 @@ nav h2 {
     justify-content: center;
 }
 
-.step{
-    display: flex;
-    outline: auto;
-    width: 20%;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 20px;
-    align-items: center; 
-} 
 
 #flow{
     display: flex;
@@ -61,22 +68,20 @@ nav h2 {
     
 }
 
-#flow h1{
-    margin: 30px;
-}
-
-#options{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    gap: 20px;
-}
-
 #upload, #find_job{
-    padding: 10px;
-    border-radius: 15px;
+    padding: 12px 28px; 
+    border-radius: 8px;
     width: 200px;
+    background-color: #ec4899;
+    color: white;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#upload:hover, #find_job:hover {
+    background-color: #db2777;
 }
 
 h3{
