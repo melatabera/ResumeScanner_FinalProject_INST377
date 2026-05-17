@@ -4,14 +4,15 @@ body {
     margin: 0;
     padding: 0;
 }
-
-nav {
+nav{
     display: flex;
     gap: 30px;
     align-items: center;
     justify-content: flex-end;
     margin: 20px;
     background-color: white;
+    border-radius: 20px;
+    padding: 0px 20px
 }
 
 nav h2 {
@@ -28,6 +29,11 @@ nav h4 a{
 
 nav h4 a:hover {
     color: #ec4899;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
 
 .page_hero {
