@@ -1,26 +1,13 @@
-.resume_section {
-    max-width: 1100px;
-    margin: 0 auto; 
-    padding: 60px 20px;
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 30px;
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #fdf2f8;
+    margin: 0;
+    padding: 0;
 }
 
-.resume_card {
-    background: white;
-    padding: 35px; 
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.006);
-}
-
-.resume_card h2{
-    margin-bottom: 12px;
-    color: #111827;
-}
-
-nav{
+nav {
     display: flex;
     gap: 30px;
     align-items: center;
@@ -31,4 +18,165 @@ nav{
 
 nav h2 {
     margin-right: auto;
+    color: #ec4899;
+    font-family: 'DM Serif Display', serif;
+}
+
+nav h4 a{
+    text-decoration: none;
+    color: #4b5563;
+
+}
+
+nav h4 a:hover {
+    color: #ec4899;
+}
+
+.page_hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(135deg, #fdf2f8, #eef2ff);
+}
+
+.page_hero h1{
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: #111827;
+    margin-bottom: 12px;
+
+}
+
+.page_hero p { 
+    max-width: 580px;
+    margin: 0 auto;
+    font-size: 1rem;
+    color: #4b5563;
+    line-height: 1.7;
+}
+
+.resume_section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 30px;
+}
+
+.resume_card {
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.08);
+}
+
+.resume_card h2 {
+    margin-bottom: 12px;
+    color: #111827;
+    font-family: 'DM Serif Display', serif;
+}
+
+.small_text {
+    color: #4b5563;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block; 
+    font-size: 0.8rem; 
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 6px;
+    margin-top: 16px;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px dashed #f9a8d4;
+    border-radius: 10px;
+    background-color: #fdf2f8;
+    font-size: 0.9rem;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #f9a8d4;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #ec4899;
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+    padding: 12px 28px;
+    background-color: #ec4899;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #db2777;
+}
+
+#result {
+    background: white;
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.08);
+}
+
+.preview_card {
+    max-width: 1100px;
+    margin: 0 auto 60px;
+    padding: 35px; 
+    background: linear-gradient(135deg, #f9a8d4, #eef2ff);
+    border-radius: 18px;
+}
+
+.preview_card h2 {
+    font-family: 'DM Serif Display', serif;
+    color: #111827;
+    margin-bottom: 20px;
+}
+
+.info_box {
+    display: flex;
+    gap: 14px; 
+    padding: 14px 18px;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.info_box h3 {
+    color: #ec4899;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    min-width: 55px;
+}
+
+.info_box p {
+    color: #4b5563;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 0.85rem;
+    color: #9ca3af;
 }
