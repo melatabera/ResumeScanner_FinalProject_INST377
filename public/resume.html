@@ -4,21 +4,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Input | SkillMatch </title>
     <link rel ="stylesheet" href="resumestyle.css"/>
-    <script src=resume.js" defer></script> 
+    <script src="resume.js" defer></script> 
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <div class="logo">SkillMatch</div> 
+    <nav>
+        <h2>SkillsMatch</h2>
+        <h4><a href="index.html">Home</a></h4>
+        <h4><a href="resume.html">Upload a Resume</a></h4>
+        <h4><a href="search.html">Find a Job</a></h4>
+        <h4><a href="about.html">Support</a></h4>
 
-        <ul class="nav_links">
-            <li><a href="index.html">Home</a></li> 
-            <li><a href="about.html">About</a></li> 
-            <li><a href="resume.html" class="active">Resume</a></li> 
-            <li><a href="help.html">Help</a></li> 
-        </ul> 
-    </nav> 
+    </nav>
 
     <main> 
         <section class="page_hero">
@@ -29,25 +27,38 @@
             </p> 
         </section> 
 
-        <section class="resume_section"
+        <section class="resume_section">
             <div class="resume_card">
-                <h2>1. Upload Resume> 
+                <h2>1. Upload Resume> </h2>
                 <p class="small_text">
                     Upload a PDF version of your resume! This will be used to compare
                     against job requirements!
                 </p> 
             <form id="resume_form">
-                <label for="resume_file">Choose Resume File</label> 
-                <input type="file" id="resume_file" accept=".PDF"> 
+                <label for="resume_file">Choose Resume File</label>
+                <br/> 
+                <input type="file" id="resume_file" accept=".PDF"/> 
+                <br/>
+                <br/>
+
+                <label for="job_description">Paste Your Job Description Here!</label>
+                <br/> 
+                <textarea id="job_description" rows="7" placeholder=""></textarea>
+                <br/>
+                <br/>
 
                 <label for="skills_input">Or Enter Your Skills Manually</label> 
-                <textarea id="skills_input" rows="7" placeholder="Example: Javascript, HTML, CSS, Python, communication"></textarea>
+                <br/>
+                <textarea id="skills_input" rows="7" placeholder="Software Engineer - We are looking for a Software Engineer proficient in JavaScript, React, and Node.js, with experience in Agile methodologies..."></textarea>
 
                 <button type="submit">Save Resume</button>
             </form> 
 
             <p id="resume_message"></p>
-        </div> 
+            </div> 
+
+            <div id = "result"></div>
+        </section>
 
         <div class="resume_card preview_card"> 
             <h2> What Happens Next?</h2> 
@@ -68,7 +79,6 @@
         </div> 
     </div> 
 
-    </section> 
 </main> 
 
 <footer> 

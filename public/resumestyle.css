@@ -20,3 +20,15 @@
     color: #111827;
 }
 
+nav{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 20px;
+    background-color: white;
+}
+
+nav h2 {
+    margin-right: auto;
+}

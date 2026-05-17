@@ -1,0 +1,213 @@
+body{
+    font-family: sans-serif;
+
+}
+
+nav{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 20px;
+    background-color: white;
+}
+
+nav h2 {
+    margin-right: auto;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+#search_row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#search_box{
+    display: flex;
+    align-items: center;
+    outline: auto;
+    padding: 0px 10px;
+    width: 85%;
+    height: 45px;
+    border-radius: 10px;
+}
+
+#search_box input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+button {
+    height: 45px;
+    padding: 0 20px;
+    align-items: center;
+    border-radius: 10px;
+}
+
+#search{
+    padding-left: 20px;
+}
+
+ button{
+    display: flex;
+
+ }
+
+ #sidebar{
+    padding: 20px;
+    margin: 20px;
+    outline: auto;
+    width: 25%;
+
+ }
+
+ #checkbox_group{
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+ }
+
+ 
+ #checkbox_item{
+    display: flex;
+    align-items: center;
+    gap: 8px
+ }
+
+ #main-content{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+ }
+
+
+#job_search{
+    width: 75%;
+    outline: auto;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    height: auto;
+}
+
+
+
+
+
+/* Card Styling */
+
+
+
+
+.card{
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.job_name{
+    font-family: 'Lucida Sans';
+    margin-bottom: 1px;
+
+}
+
+#info{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.type, .company_name{
+    font-family:'Lucida Sans' ;
+    font-size: 12px;
+    margin: 0px;
+}
+
+.excerpt{
+    font-family: 'Lucida Sans';
+
+}
+
+.info :first-child {
+    outline: auto;
+    padding: 10px;
+    width: 20%;
+    border-radius: 10px;
+}
+
+.info :nth-child(2){
+    outline: auto;
+    padding: 10px;
+    width: 20%;
+    border-radius: 10px;
+}
+
+.info :nth-child(3){
+    outline: auto;
+    padding: 10px;
+    width: 20%;
+    border-radius: 10px;
+}
+/* .card{
+    background-color: white;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.card_header{
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    
+}
+
+.job-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.logo{
+    outline: auto;
+    padding: 20px;
+    width: auto;
+    border-radius: 15px;
+    background-color: #D3D3D3;
+    margin: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+
+
+}
+
+.job_name{
+    margin: 0 0 5px 0
+}
+
+
+.title{
+    display: flex;
+    gap: 20px;
+    color: black;
+    background-color: red;
+
+}
+
+
+} */
