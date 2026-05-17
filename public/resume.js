@@ -28,7 +28,7 @@ async function uploadResume(e){
         const response = await fetch('https://api.apyhub.com/sharpapi/api/v1/hr/resume_job_match_score', {
             method: 'POST',
             headers:{
-                'apy-token': 'APY0851lS5bBKXx6UE9McAJUGimlS11wEGzSczJE4A4OSm6StPL3PjnZhjUJ3W9hFqfUmcvu',
+                'apy-token': 'APY02Iyl53LyWewCu43MIeWdca1j3LS4ZmKBYwUBQ2uAQv0psYuXbGf2AoWnVS8o19pC4YT7u',
                 'Accept': 'application/json'
             },
             body: formData
@@ -61,7 +61,7 @@ function showResults(jobId){
         const checkResponse = await fetch(link, {
             method: 'GET', 
             headers: {
-                'apy-token': 'APY0851lS5bBKXx6UE9McAJUGimlS11wEGzSczJE4A4OSm6StPL3PjnZhjUJ3W9hFqfUmcvu',
+                'apy-token': 'APY02Iyl53LyWewCu43MIeWdca1j3LS4ZmKBYwUBQ2uAQv0psYuXbGf2AoWnVS8o19pC4YT7u',
                 'Content-Type': 'application/json'
             }
         });
