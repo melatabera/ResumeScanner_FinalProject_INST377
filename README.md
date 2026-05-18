@@ -7,6 +7,8 @@ SkillMatch aims to close the gap by providing real-time feedback about where the
 
 Target Browsers: Chrome
 
+Developer's Manual: docs.md
+
 --------------------------------------------------------------------------
 
 
