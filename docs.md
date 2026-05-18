@@ -46,7 +46,7 @@ To start the server, enter the following into the terminal:
 
  --> npm start 
 
-The server should be avaible at: http://localhost:3000. Open this server in chrome for best functionality 
+The server should be available at: http://localhost:3000. Open this server in chrome for best functionality 
 
 Deployment: This application deploys on Vercel. To deploy, add supabase environment variables to Vercal dashboard.
 
