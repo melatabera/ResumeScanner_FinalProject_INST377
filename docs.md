@@ -12,24 +12,24 @@ Have the following applications installed:
 1. Node.js 
 2. Supabase account
 
-Step 1 - Clone the Repository
+### Step 1 - Clone the Repository
 
 git clone https://github.com/melatabera ResumeScanner_FinalProject_INST377.git
 
-Step 2 - Install Dependencies
+### Step 2 - Install Dependencies
 
 npm install 
 
-Dependencies 
-    express
-    @supabase/supabase-js
-    body-parser
-    dotenv
-    nodemon
-    motion
-    chartjs
+Dependencies
+- express
+- @supabase/supabase-js
+- body-parser
+- dotenv
+- nodemon
+- motion
+- chartjs
 
-Step 3 - Configure Enviornment Variable 
+### Step 3 - Configure Enviornment Variable 
 
 Create an .env file in the project root, and implement the following enviornment variables:
 
