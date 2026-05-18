@@ -22,7 +22,7 @@ async function uploadResume(e) {
         const response = await fetch('https://api.apyhub.com/sharpapi/api/v1/hr/resume_job_match_score', {
             method: 'POST',
             headers: {
-                'apy-token': 'APY070S9wOGdlB8j6w44dpQnC23c1qGo1FzvQ5WDtRB01sMzDtwenIMhCtdbm5G5x4MCv',
+                'apy-token': API_KEY,
                 'Accept': 'application/json'
             },
             body: formData
@@ -55,7 +55,7 @@ function showResults(jobId, file) {
         const checkResponse = await fetch(link, {
             method: 'GET',
             headers: {
-                'apy-token': 'APY070S9wOGdlB8j6w44dpQnC23c1qGo1FzvQ5WDtRB01sMzDtwenIMhCtdbm5G5x4MCv',
+                'apy-token': API_KEY,
                 'Content-Type': 'application/json'
             }
         });
@@ -216,3 +216,7 @@ async function loadHistory() {
         console.log("error getting history!!")
     }
 }
+
+window.onload = function () {
+    loadHistory();
+};
