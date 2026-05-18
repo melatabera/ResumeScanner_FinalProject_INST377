@@ -1,13 +1,14 @@
-<html lang="en"> 
-<head> 
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Input | SkillMatch </title>
-    <link rel ="stylesheet" href="resumestyle.css"/>
+    <link rel="stylesheet" href="resumestyle.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
 
-    <script src="resume.js" defer></script> 
+    <script src="resume.js" defer></script>
 </head>
 
 <body>
@@ -21,14 +22,14 @@
 
     </nav>
 
-    <main> 
+    <main>
         <section class="page_hero">
-            <h1> Upload Your <em>Resume</em></h1> 
-            <p> 
-                Add your resume or list your skills manually so SkillMatch can help 
+            <h1> Upload Your <em>Resume</em></h1>
+            <p>
+                Add your resume or list your skills manually so SkillMatch can help
                 compare your experiences with real job descriptions.
-            </p> 
-        </section> 
+            </p>
+        </section>
 
         <section class="resume_section">
             <div class="resume_card">
@@ -36,58 +37,65 @@
                 <p class="small_text">
                     Upload a PDF version of your resume! This will be used to compare
                     against job requirements!
-                </p> 
-            <form id="resume_form">
-                <label for="resume_file" required>Choose Resume File</label>
-                <br/> 
-                <input type="file" id="resume_file" accept=".pdf"/> 
-                <br/>
-                <br/>
+                </p>
+                <form id="resume_form">
+                    <label for="resume_file" required>Choose Resume File</label>
+                    <br />
+                    <input type="file" id="resume_file" accept=".pdf" />
+                    <br />
+                    <br />
 
-                <label for="job_description" required>Paste Your Job Description Here!</label>
-                <br/> 
-                <textarea id="job_description" rows="7" placeholder=""></textarea>
-                <br/>
-                <br/>
+                    <label for="job_description" required>Paste Your Job Description Here!</label>
+                    <br />
+                    <textarea id="job_description" rows="7" placeholder=""></textarea>
+                    <br />
+                    <br />
 
-                <button type="submit" class="get_score">Get Match Score </button>
-            </form> 
+                    <button type="submit" class="get_score">Get Match Score </button>
+                </form>
 
-            <p id="resume_message"></p>
-            </div> 
+                <p id="resume_message"></p>
+            </div>
 
-            <div id = "result"></div>
+            <div id="result"></div>
+
+            <div class="resume_card">
+                <h2>Past Resume Scans</h2>
+                <div id="history_container"></div>
+            </div>
         </section>
 
-        <div class="resume_card preview_card"> 
-            <h2> What Happens Next?</h2> 
+        <div class="resume_card preview_card">
+            <h2> What Happens Next?</h2>
 
-        <div class="info_box"> 
-            <h3> Get Real Insight: </h3> 
-            <p> Find where your skills really lack on your resume, no more guesswork.</p> 
-        </div> 
+            <div class="info_box">
+                <h3> Get Real Insight: </h3>
+                <p> Find where your skills really lack on your resume, no more guesswork.</p>
+            </div>
 
-        <div class="info_box"> 
-            <h3> Practice with Purpose: </h3> 
-            <p> Be intentional about which skills you focus on developing, and be prepared for the next application season</p> 
-        </div> 
+            <div class="info_box">
+                <h3> Practice with Purpose: </h3>
+                <p> Be intentional about which skills you focus on developing, and be prepared for the next application
+                    season</p>
+            </div>
 
-        <div class="info_box"> 
-            <h3> Land the Internship: </h3> 
-            <p> Fill out every application with confidence, knowing that your resume matches what recruiters are looking for</p> 
-        </div> 
-    </div> 
+            <div class="info_box">
+                <h3> Land the Internship: </h3>
+                <p> Fill out every application with confidence, knowing that your resume matches what recruiters are
+                    looking for</p>
+            </div>
+        </div>
 
-</main> 
+    </main>
 
-<script type="module">
-    import { animate, press } from "https://cdn.jsdelivr.net/npm/motion@12.38.0/+esm"
-    press(".get_score", (element) =>
-        animate(element, { scale: 0.8 }, { type: "spring", stiffness: 1000 })
-    )
-</script>
+    <script type="module">
+        import { animate, press } from "https://cdn.jsdelivr.net/npm/motion@12.38.0/+esm"
+        press(".get_score", (element) =>
+            animate(element, { scale: 0.8 }, { type: "spring", stiffness: 1000 })
+        )
+    </script>
 
 
 </body>
 
-</html>  
+</html>

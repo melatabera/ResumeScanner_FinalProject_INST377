@@ -1,7 +1,6 @@
+document.getElementById("resume_form").addEventListener('submit', uploadResume);
 
-document.getElementById("resume_form").addEventListener('submit',uploadResume);
-
-async function uploadResume(e){
+async function uploadResume(e) {
     e.preventDefault();
 
     // Get the submitted data
@@ -18,12 +17,12 @@ async function uploadResume(e){
     formData.append('content', content);
     formData.append('language', 'English');
 
-    // call API with the data
-    try{
+    // call backend point with the data
+    try {
         const response = await fetch('https://api.apyhub.com/sharpapi/api/v1/hr/resume_job_match_score', {
             method: 'POST',
-            headers:{
-                'apy-token': 'APY0nlMnV0utGJoC3SThKCcO8DsOGL4R3yjozpMkvjt66XTKF16kVYLeYGVQ8W10ykBUT',
+            headers: {
+                'apy-token': 'APY070S9wOGdlB8j6w44dpQnC23c1qGo1FzvQ5WDtRB01sMzDtwenIMhCtdbm5G5x4MCv',
                 'Accept': 'application/json'
             },
             body: formData
@@ -36,27 +35,27 @@ async function uploadResume(e){
 
         // call function to periodically check if upload is done, show results if ready
 
-        const result = await showResults(data.job_id)
+        const result = await showResults(data.job_id, file)
     }
-    catch (e){
+    catch (e) {
         console.log("error!");
     }
 
 }
 
-function showResults(jobId){
+function showResults(jobId, file) {
 
     console.log("starting interval");
 
     const link = `https://api.apyhub.com/sharpapi/api/v1/hr/resume_job_match_score/job/status/${jobId}`
     // continuously check status link given by API to see if data is ready (every 2 seconds)
-    const timer = setInterval(async() => {
-        
+    const timer = setInterval(async () => {
+
         // check the status for a response
         const checkResponse = await fetch(link, {
-            method: 'GET', 
+            method: 'GET',
             headers: {
-                'apy-token': 'APY0nlMnV0utGJoC3SThKCcO8DsOGL4R3yjozpMkvjt66XTKF16kVYLeYGVQ8W10ykBUT',
+                'apy-token': 'APY070S9wOGdlB8j6w44dpQnC23c1qGo1FzvQ5WDtRB01sMzDtwenIMhCtdbm5G5x4MCv',
                 'Content-Type': 'application/json'
             }
         });
@@ -67,12 +66,27 @@ function showResults(jobId){
         const currentStatus = data.data.attributes.status;
 
         // if the data is already ready, stop checking and set the div with info
-        if(currentStatus === "success"){
+        if (currentStatus === "success") {
             clearInterval(timer);
 
             const result = data.data.attributes.result;
             const scores = result.match_scores;
             const explanations = result.explanations;
+
+            try {
+                await fetch('/api/resumes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        filename: file.name,
+                        score: scores.overall_match
+                    })
+                });
+            } catch (error) {
+                console.log("error in posting to the supabase");
+            }
 
             //labels for each score
             const scoreLabels = {
@@ -82,7 +96,7 @@ function showResults(jobId){
                 education_match: "Education",
                 certifications_match: "Certifications",
                 job_title_relevance: "Job Title Relevance",
-                technical_stack_match: "Technical Stack", 
+                technical_stack_match: "Technical Stack",
                 methodologies_match: "Methodologies",
                 soft_skills_match: "Soft Skills",
                 project_experience_match: "Project Experience",
@@ -95,7 +109,7 @@ function showResults(jobId){
 
             //building score bars
             let scoresHTML = '';
-            for(const key in scoreLabels){
+            for (const key in scoreLabels) {
                 const label = scoreLabels[key];
                 const value = scores[key] || 0;
                 scoresHTML += `
@@ -111,7 +125,7 @@ function showResults(jobId){
 
             //building explanations 
             let explanationsHTML = '';
-            for(const key in explanations){
+            for (const key in explanations) {
                 const label = scoreLabels[key] || key;
                 explanationsHTML += `
                 <div class="explanation_item">
@@ -133,11 +147,51 @@ function showResults(jobId){
                     ${explanationsHTML}
                 </div>
             `
-            
+
         } else {
             console.log("not ready yet");
         }
-    
+
     }, 10000)
 }
 
+async function loadHistory() {
+    try {
+        // get all saved resumes
+        const response = await fetch('/api/resumes');
+        const data = await response.json();
+
+        // get history container, set it to empty intially
+        const container = document.getElementById('history_container');
+        container.innerHTML = '';
+
+        // if length 0, indicate that there is no history
+        if (!data || data.length === 0) {
+            container.innerHTML = '<p>No past scans yet.</p>'
+            return;
+        }
+
+        data.forEach(item => {
+            const card = document.createElement('div');
+            // for styling
+            card.classList.add('history_card');
+
+
+            const title = document.createElement('h3')
+            title.textContent = item.filename;
+
+            const score = document.createElement('p');
+            score.innerHTML = `Match Score: ${item.score}%`
+
+            // add elements together
+            card.appendChild(title);
+            card.appendChild(score);
+
+            container.appendChild(card);
+
+        })
+    }
+    catch (error) {
+        console.log("error getting history!!")
+    }
+}

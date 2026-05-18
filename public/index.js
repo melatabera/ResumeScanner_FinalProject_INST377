@@ -1,5 +1,4 @@
-
-document.getElementById('search_btn').addEventListener('click', async() => {
+document.getElementById('search_btn').addEventListener('click', async () => {
     const jobs = await fetchJobData()
     getJobs(jobs)
 })
@@ -7,23 +6,23 @@ document.getElementById('search_btn').addEventListener('click', async() => {
 
 let currentOffset = 0
 
-async function fetchJobData(offset=0) {
+async function fetchJobData(offset = 0) {
     const query = document.getElementById('query').value;
-    const response = await fetch(`https://himalayas.app/jobs/api/search?q=${query}&limit=20`)
+    const response = await fetch(`/api/jobs?q=${query}`)
     const data = await response.json()
-    console.log(data)  
-    return data.jobs
+    console.log(data)
+    return data
 
 }
 
-function getJobs(jobs){
+function getJobs(jobs) {
     const container = document.getElementById('job_search')
     container.innerHTML = '';
 
     jobs.forEach(job => {
         const card = document.createElement('div')
         card.classList.add('card');
-    
+
         const title = document.createElement('h3')
         title.classList.add('job_name')
         title.textContent = job.title
@@ -54,20 +53,20 @@ function getJobs(jobs){
 
         const labels = document.createElement('div');
         labels.classList.add('labels');
-        if(job.categories && Array.isArray(job.categories)){
-            job.categories.slice(0,3).forEach(category => {
-            const label = document.createElement('p')
-            label.classList.add('label_tag')
-            label.textContent = category.replaceAll('-',' ')
-            labels.appendChild(label)
-         })
+        if (job.categories && Array.isArray(job.categories)) {
+            job.categories.slice(0, 3).forEach(category => {
+                const label = document.createElement('p')
+                label.classList.add('label_tag')
+                label.textContent = category.replaceAll('-', ' ')
+                labels.appendChild(label)
+            })
         }
 
         const viewBtn = document.createElement('button')
         viewBtn.classList.add('job_viewer')
         viewBtn.textContent = 'View Job'
-        viewBtn.addEventListener('click', function(){
-        window.open(job.guid, '_blank')
+        viewBtn.addEventListener('click', function () {
+            window.open(job.guid, '_blank')
         })
 
 
@@ -85,8 +84,8 @@ function getJobs(jobs){
 }
 
 
-window.onload = async function(){
-    const response = await fetch(`https://himalayas.app/jobs/api/search?q=${query}&limit=20`)
+window.onload = async function () {
+    const response = await fetch(`/api/jobs?q=`)
     const data = await response.json();
-    getJobs(data.jobs)
+    getJobs(data)
 }
