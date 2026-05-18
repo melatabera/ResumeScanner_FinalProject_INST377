@@ -5,13 +5,15 @@
     <title>Resume Input | SkillMatch </title>
     <link rel ="stylesheet" href="resumestyle.css"/>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
+
     <script src="resume.js" defer></script> 
 </head>
 
 <body>
 
     <nav>
-        <h2>SkillsMatch</h2>
+        <h2>SkillMatch</h2>
         <h4><a href="index.html">Home</a></h4>
         <h4><a href="resume.html">Upload a Resume</a></h4>
         <h4><a href="search.html">Find a Job</a></h4>
@@ -36,19 +38,19 @@
                     against job requirements!
                 </p> 
             <form id="resume_form">
-                <label for="resume_file">Choose Resume File</label>
+                <label for="resume_file" required>Choose Resume File</label>
                 <br/> 
                 <input type="file" id="resume_file" accept=".pdf"/> 
                 <br/>
                 <br/>
 
-                <label for="job_description">Paste Your Job Description Here!</label>
+                <label for="job_description" required>Paste Your Job Description Here!</label>
                 <br/> 
                 <textarea id="job_description" rows="7" placeholder=""></textarea>
                 <br/>
                 <br/>
 
-                <button type="submit">Save Resume </button>
+                <button type="submit" class="get_score">Get Match Score </button>
             </form> 
 
             <p id="resume_message"></p>
@@ -61,26 +63,30 @@
             <h2> What Happens Next?</h2> 
 
         <div class="info_box"> 
-            <h3> Step 1 </h3> 
-            <p> You upload your resume or entre your skills.</p> 
+            <h3> Get Real Insight: </h3> 
+            <p> Find where your skills really lack on your resume, no more guesswork.</p> 
         </div> 
 
         <div class="info_box"> 
-            <h3> Step 2 </h3> 
-            <p> You choose a job from the job search page or paste in a job description.</p> 
+            <h3> Practice with Purpose: </h3> 
+            <p> Be intentional about which skills you focus on developing, and be prepared for the next application season</p> 
         </div> 
 
         <div class="info_box"> 
-            <h3> Step 3 </h3> 
-            <p> SkillMatch compares your resume to the job and shows missing skills or qualifications.</p> 
+            <h3> Land the Internship: </h3> 
+            <p> Fill out every application with confidence, knowing that your resume matches what recruiters are looking for</p> 
         </div> 
     </div> 
 
 </main> 
 
-<footer> 
-    <p> © 2026 SkillMatch</p> 
-    </footer>  
+<script type="module">
+    import { animate, press } from "https://cdn.jsdelivr.net/npm/motion@12.38.0/+esm"
+    press(".get_score", (element) =>
+        animate(element, { scale: 0.8 }, { type: "spring", stiffness: 1000 })
+    )
+</script>
+
 
 </body>
 

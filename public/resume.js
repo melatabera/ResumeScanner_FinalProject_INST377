@@ -1,7 +1,3 @@
-/*
-Software Engineer - We are looking for a Software Engineer proficient in JavaScript, React, and Node.js, with experience in Agile methodologies
-
-*/
 
 document.getElementById("resume_form").addEventListener('submit',uploadResume);
 
@@ -14,7 +10,6 @@ async function uploadResume(e){
 
 
     document.getElementById('result').innerHTML = '<p>Uploading and analyzing, please wait....'
-    // document.getElementById('submit_button').disabled = true;
 
 
     // API requires a formData object, initialize one with the necessary inputs: 'file', 'content', and 'language'

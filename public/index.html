@@ -10,7 +10,7 @@
 </head>
 <body>
     <nav>
-        <h2>SkillsMatch</h2>
+        <h2>SkillMatch</h2>
         <h4><a href="index.html">Home</a></h4>
         <h4><a href="resume.html">Upload a Resume</a></h4>
         <h4><a href="search.html">Find a Job</a></h4>
@@ -23,28 +23,21 @@
         <h4>Upload your resume, select the internships you what, 
             and instantly see how you match. <br><br> Don't have an internship in mind? Explore internships
              tailored to your skills and goals </h4>
-
-<<<<<<< HEAD
-        <div class="buttons">
-            <button id="upload" onclick="window.location.href='resume.html'">Upload a Resume</button>
-            <button id="find_job" onclick="window.location.href='search.html'">Find a job</button>
-        </div>
     </div>
 
-=======
->>>>>>> f7e413ac077eaae3c3c3acfea775134ff696a444
+
    
     <h3>How it works</h3>
 
     <div id="flow">
         <div class="step">
             <h1>01</h1>
-            <p> Upload your resume or manually add your skills and experience </p>
+            <p> Upload your professional resume and let our Apyhub's Resume API instantly analyze your skills and experience. </p>
 
         </div>
         <div class="step">
             <h1>02</h1>
-            <p> Browse and select internships that match your interests and career goals -- or upload your own opportunities to compare</p>
+            <p> Browse and select internships that match your interests and career goals -- or upload your own opportunities.</p>
             
         </div>
         <div class="step">
@@ -55,14 +48,18 @@
 
     </div>    
          <div class="buttons">
-            <button id="upload">Upload a Resume</button>
-            <button id="find_job">Find a job</button>
+            <button id="upload" onclick="window.location.href='resume.html'">Upload a Resume</button>
+            <button id="find_job" onclick="window.location.href='search.html'">Find a job</button>
         </div>
     </div>
     
     <script>
-    const { animate, scroll } = Motion
-    animate(".step", { rotate: 360 })
+    const { animate, stagger } = Motion
+    animate(
+        ".step", 
+        { opacity: 1, y: [50, 0]},
+        { delay: stagger(0.05)}
+    )
 
     </script>
 

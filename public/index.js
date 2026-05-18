@@ -23,7 +23,6 @@ function getJobs(jobs){
     jobs.forEach(job => {
         const card = document.createElement('div')
         card.classList.add('card');
-
     
         const title = document.createElement('h3')
         title.classList.add('job_name')
