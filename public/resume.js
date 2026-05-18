@@ -123,7 +123,10 @@ function showResults(jobId){
 
             document.getElementById('result').innerHTML = `
                 <h3>Your Results</h3>
-                <div class="overall_score">${scores.overall_match}% Match</div>
+                <div class="overall_score">
+                    <canvas id="scoreChart" width="150" height="150"></canvas>
+                    <p>${scores.overall_match}%  Overall Match</p>
+                </div>
                 <div class="scores_section">
                     <h4>Score Breakdown</h4>
                     ${scoresHTML}
@@ -133,6 +136,24 @@ function showResults(jobId){
                     ${explanationsHTML}
                 </div>
             `
+            //Doughnut chart for overall match score
+            const ctx = document.getElementById('scoreChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [scores.overall_match, 100 - scores.overall_match],
+                        backgroundColor: ['#ec4899', '#fdf2f8'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    cutout: '75%',
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            })
             
         } else {
             console.log("not ready yet");
